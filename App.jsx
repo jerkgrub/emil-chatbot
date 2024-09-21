@@ -4,9 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import RegisterUserPage from "./screens/RegisterUserPage";
-import ChatscreenPage from "./screens/DogloversPage";
 import AllChatsPage from "./screens/AllChatsPage";
-import DogloversPage from "./screens/DogloversPage";
+import DogloversPage from "./screens/DogloversPage"; 
 import CatloversPage from "./screens/CatloversPage";
 
 const Stack = createStackNavigator();
@@ -19,43 +18,43 @@ const App = () => {
           <Stack.Screen
             name="Register"
             component={RegisterUserPage}
-            options={{ headerShown: false }} // Hide top bar
+            options={{ headerShown: false }}
           />
           <Stack.Screen
             name="Chats"
             component={AllChatsPage}
-            options={{ headerShown: false }} // Hide top bar
+            options={{ headerShown: false }}
           />
           <Stack.Screen
             name="Dog Lovers"
             component={DogloversPage}
             options={{
-              title: "Dog Lovers", // Customize the title
+              title: "Dog Lovers",
               headerStyle: {
-                backgroundColor: "#FFB703", // Match the theme color of the app (same as button color)
+                backgroundColor: "#FFB703",
               },
-              headerTintColor: "#fff", // Set text and icon color to white
+              headerTintColor: "#fff",
               headerTitleStyle: {
-                fontWeight: "bold", // Make the title bold
-                fontSize: 24, // Adjust font size to fit the theme
+                fontWeight: "bold",
+                fontSize: 24,
               },
-              headerTitleAlign: "center", // Align title to the center
+              headerTitleAlign: "center",
             }}
           />
           <Stack.Screen
             name="Cat Lovers"
             component={CatloversPage}
             options={{
-              title: "Cat Lovers", // Customize the title
+              title: "Cat Lovers",
               headerStyle: {
-                backgroundColor: "#FFB703", // Match the theme color of the app (same as button color)
+                backgroundColor: "#FFB703",
               },
-              headerTintColor: "#fff", // Set text and icon color to white
+              headerTintColor: "#fff",
               headerTitleStyle: {
-                fontWeight: "bold", // Make the title bold
-                fontSize: 24, // Adjust font size to fit the theme
+                fontWeight: "bold",
+                fontSize: 24,
               },
-              headerTitleAlign: "center", // Align title to the center
+              headerTitleAlign: "center",
             }}
           />
         </Stack.Navigator>
@@ -71,3 +70,5 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+
+//INF212_MIDTERMPROJ_NUCASA_JERICK_kjUUysuer25Jhs7h212

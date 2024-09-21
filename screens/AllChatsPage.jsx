@@ -2,12 +2,13 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-const AllChatsPage = ({ navigation }) => {
+const AllChatsPage = ({ navigation, route }) => {
+  const { username } = route.params || {}; 
+
   return (
     <View style={styles.container}>
-      {/* Title and Logout button in the same row */}
       <View style={styles.headerContainer}>
-        <Text style={styles.title}>Your Chats</Text>
+        <Text style={styles.title}>Welcome, {username || 'Guest'}</Text> 
         <TouchableOpacity style={styles.logoutButton} onPress={() => navigation.navigate('Register')}>
           <Icon name="sign-out-alt" size={20} color="#fff" style={styles.logoutIcon} />
           <Text style={styles.logoutButtonText}>Logout</Text>
@@ -15,17 +16,15 @@ const AllChatsPage = ({ navigation }) => {
       </View>
 
       <View style={styles.chatOption}>
-        <Text style={styles.chatLabel}>Dog Lovers Group 🐶
-        </Text>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Dog Lovers')}>
+        <Text style={styles.chatLabel}>Dogmalou (For Dog Lovers) 🐶</Text>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Dog Lovers', { username })}>
           <Text style={styles.buttonText}>Join Chat</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.chatOption}>
-        <Text style={styles.chatLabel}>Cat Lovers Group 🐱
-        </Text>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Cat Lovers')}>
+        <Text style={styles.chatLabel}>Catmalou (For Cat Lovers)  🐱</Text>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Cat Lovers', { username })}>
           <Text style={styles.buttonText}>Join Chat</Text>
         </TouchableOpacity>
       </View>
@@ -36,15 +35,16 @@ const AllChatsPage = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-start', // Align items at the top
+    justifyContent: 'flex-start',
     padding: 16,
     backgroundColor: '#EDE7E3',
   },
   headerContainer: {
-    flexDirection: 'row', // Align title and button in a row
-    justifyContent: 'space-between', // Space them out
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 30,
+    marginTop: 0,
   },
   title: {
     fontSize: 26,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   logoutButton: {
-    flexDirection: 'row', // Icon and text in one row
+    flexDirection: 'row',
     backgroundColor: '#FF6347',
     borderRadius: 20,
     paddingVertical: 5,
@@ -96,3 +96,5 @@ const styles = StyleSheet.create({
 });
 
 export default AllChatsPage;
+
+//INF212_MIDTERMPROJ_NUCASA_JERICK_kjUUysuer25Jhs7h212

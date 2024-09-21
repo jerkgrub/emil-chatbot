@@ -1,21 +1,33 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const RegisterUserPage = ({ navigation }) => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const handleRegister = () => {
+    if (username.trim() === '') {
+      Alert.alert("Invalid Username", "Please enter a valid username");
+      return;
+    }
+    if (password.trim() === '') {
+      Alert.alert("Invalid Password", "Password cannot be empty");
+      return;
+    }
+    
+    navigation.navigate('Chats', { username });
+  };
 
   return (
     <View style={styles.container}>
-      {/* Add the dog icon */}
       <Icon name="dog" size={120} color="#5A3E36" style={styles.icon} />
       <Text style={styles.title}>Welcome to Petmalou!</Text>
       <TextInput
         style={styles.input}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
+        placeholder="Username"
+        value={username}
+        onChangeText={setUsername}
         placeholderTextColor="#aaa"
       />
       <TextInput
@@ -26,7 +38,10 @@ const RegisterUserPage = ({ navigation }) => {
         secureTextEntry
         placeholderTextColor="#aaa"
       />
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Chats')}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={handleRegister}
+      >
         <Text style={styles.buttonText}>Register</Text>
       </TouchableOpacity>
     </View>
@@ -74,3 +89,5 @@ const styles = StyleSheet.create({
 });
 
 export default RegisterUserPage;
+
+//INF212_MIDTERMPROJ_NUCASA_JERICK_kjUUysuer25Jhs7h212
